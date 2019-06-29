@@ -1,7 +1,11 @@
-import React, { Fragment } from 'react'; 
-import styles from './Repo.module.sass'; 
- 
-export default () => ( 
-  <Fragment> 
-  </Fragment> 
+import React from 'react';
+import { item, active } from './Repo.module.sass';
+import RepoInfo from '../RepoInfo/RepoInfo';
+import RepoDescription from '../RepoDescription/RepoDescription';
+
+export default () => (
+  <li className={item}>
+    <RepoInfo />
+    <RepoDescription />
+  </li>
 ) 

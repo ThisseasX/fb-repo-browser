@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react'; 
-import styles from './ResultsBody.module.sass'; 
- 
-export default () => ( 
-  <Fragment> 
-  </Fragment> 
+import React from 'react';
+import { wrapper } from './ResultsBody.module.sass';
+import Repo from '../../Repository/Repo/Repo';
+
+export default () => (
+  <ul className={wrapper}>
+    <Repo />
+  </ul>
 ) 

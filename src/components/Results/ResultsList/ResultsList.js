@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react'; 
-import styles from './ResultsList.module.sass'; 
- 
-export default () => ( 
-  <Fragment> 
-  </Fragment> 
+import React, { Fragment } from 'react';
+import ResultsHeader from '../ResultsHeader/ResultsHeader';
+import ResultsBody from '../ResultsBody/ResultsBody';
+
+export default () => (
+  <Fragment>
+    <ResultsHeader />
+    <ResultsBody />
+  </Fragment>
 ) 
