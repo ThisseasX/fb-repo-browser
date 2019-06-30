@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/fb-repo-browser/static/css/main.ed81f4d1.chunk.css",
+    "main.js": "/fb-repo-browser/static/js/main.089f022b.chunk.js",
+    "main.js.map": "/fb-repo-browser/static/js/main.089f022b.chunk.js.map",
+    "runtime~main.js": "/fb-repo-browser/static/js/runtime~main.34bfbeff.js",
+    "runtime~main.js.map": "/fb-repo-browser/static/js/runtime~main.34bfbeff.js.map",
+    "static/css/2.764ccc25.chunk.css": "/fb-repo-browser/static/css/2.764ccc25.chunk.css",
+    "static/js/2.6c41523c.chunk.js": "/fb-repo-browser/static/js/2.6c41523c.chunk.js",
+    "static/js/2.6c41523c.chunk.js.map": "/fb-repo-browser/static/js/2.6c41523c.chunk.js.map",
+    "index.html": "/fb-repo-browser/index.html",
+    "precache-manifest.ea9bbcccf1b6a165e3bfb544e105b6c0.js": "/fb-repo-browser/precache-manifest.ea9bbcccf1b6a165e3bfb544e105b6c0.js",
+    "service-worker.js": "/fb-repo-browser/service-worker.js",
+    "static/css/2.764ccc25.chunk.css.map": "/fb-repo-browser/static/css/2.764ccc25.chunk.css.map",
+    "static/css/main.ed81f4d1.chunk.css.map": "/fb-repo-browser/static/css/main.ed81f4d1.chunk.css.map"
+  }
+}
