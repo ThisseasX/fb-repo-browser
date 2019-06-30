@@ -1,20 +1,17 @@
 import React from 'react';
 import {
   wrapper,
-  description,
+  descriptionText,
   header,
   body,
   active
 } from './RepoDescription.module.sass';
 
-export default ({ isActive }) => (
+export default ({ description, isActive }) => (
   <div className={`${wrapper} ${isActive && active}`}>
-    <div className={description}>
+    <div className={descriptionText}>
       <p className={header}>Description:</p>
-      <p className={body}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-          fuga ipsam natus error
-          repellendus magni tempore voluptates libero optio ut! Ipsa, commodi? Dicta, vitae
-          quibusdam. Quibusdam, odit! Eaque, molestias dolorum?</p>
+      <p className={body}>{description}</p>
     </div>
   </div>
 ) 
