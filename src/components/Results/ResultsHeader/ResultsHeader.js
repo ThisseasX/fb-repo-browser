@@ -10,15 +10,16 @@ import {
 export default () => (
   <div className={wrapper}>
     <p className={title}>Repository results</p>
-    <select className={`${select} ${sortBy}`}>
-      <option selected disabled>Sort by</option>
-      <option value="name">Name</option>
-      <option value="stars">Stars count</option>
+    <select className={`${select} ${sortBy}`} defaultValue="name">
+      <optgroup label="Sort by">
+        <option value="name">Name</option>
+        <option value="stars">Stars count</option>
+      </optgroup>
     </select>
-    <label className={resultsPerPage} for="results-per-page">results per page</label>
-    <select className={select} id="results-per-page">
-      <option value="8">8</option>
-      <option value="16">16</option>
+    <label className={resultsPerPage} htmlFor="results-per-page">results per page</label>
+    <select className={select} defaultValue={8} id="results-per-page">
+      <option value={8}>8</option>
+      <option value={16}>16</option>
     </select>
   </div>
 ) 
