@@ -3,12 +3,11 @@ import {
   wrapper,
   descriptionText,
   header,
-  body,
-  active
+  body
 } from './RepoDescription.module.sass';
 
-export default ({ description, isActive }) => (
-  <div className={`${wrapper} ${isActive && active}`}>
+export default ({ description }) => (
+  <div className={wrapper}>
     <div className={descriptionText}>
       <p className={header}>Description:</p>
       <p className={body}>{description}</p>

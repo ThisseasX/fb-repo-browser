@@ -1,5 +1,5 @@
 import React from 'react';
-import { wrapper, info, nameText } from './RepoInfo.module.sass';
+import { wrapper, info, nameText, triangle } from './RepoInfo.module.sass';
 import RepoStars from '../RepoStars/RepoStars';
 
 export default ({ repo }) => {
@@ -10,6 +10,7 @@ export default ({ repo }) => {
       <div className={info}>
         <p className={nameText}>{name}</p>
         <RepoStars stars={stars} />
+        <div className={triangle} />
       </div>
     </div>
   );

@@ -13,7 +13,6 @@ export default () => {
         const responseRepos = [];
 
         json.some(({ id, name, description, stargazers_count }, index) => {
-          if (index >= 8) return true;
 
           responseRepos.push({
             id,
