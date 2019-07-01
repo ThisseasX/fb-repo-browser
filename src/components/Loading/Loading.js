@@ -8,7 +8,7 @@ const Loading = ({ loading, children }) => (
         <h1>Loading...</h1>
         :
         children
-)
+);
 
 Loading.propTypes = {
     loading: PropTypes.bool

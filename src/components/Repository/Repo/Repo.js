@@ -16,7 +16,7 @@ export default ({ repo }) => {
   const handleMouseDown = (e) => {
     e.preventDefault();
     e.stopPropagation();
-  }
+  };
 
   return (
     <li onClick={handleClick} onMouseDown={handleMouseDown} className={`${item} ${isActive && active}`}>
@@ -25,5 +25,5 @@ export default ({ repo }) => {
         <RepoDescription description={description} />
       </TinyCollapse>
     </li>
-  )
+  );
 };

@@ -13,4 +13,4 @@ export default ({ description }) => (
       <p className={body}>{description}</p>
     </div>
   </div>
-) 
+);

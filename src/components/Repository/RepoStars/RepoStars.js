@@ -11,4 +11,4 @@ export default ({ stars }) => (
     </div>
     <p className={count}>{stars}</p>
   </div>
-) 
+);

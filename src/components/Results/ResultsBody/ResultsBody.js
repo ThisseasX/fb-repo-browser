@@ -83,5 +83,5 @@ export default ({ search, selectedValues }) => {
         </ul>
       </Loading>
     </Error>
-  )
+  );
 };

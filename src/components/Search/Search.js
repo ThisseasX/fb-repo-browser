@@ -2,9 +2,10 @@ import React from 'react';
 import { searchWrapper, input, iconWrapper } from './Search.module.sass';
 
 export default ({ setSearch }) => {
+  
   const handleSearch = (e) => {
     setSearch(e.target.value);
-  }
+  };
 
   return (
     <div className={searchWrapper}>
@@ -22,5 +23,5 @@ export default ({ setSearch }) => {
         </svg>
       </div>
     </div>
-  )
-}
+  );
+};

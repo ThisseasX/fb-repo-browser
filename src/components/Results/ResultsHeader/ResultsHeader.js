@@ -16,7 +16,7 @@ export default ({ selectedValues, setSelectedValues }) => {
       ...selectedValues,
       [name]: value
     });
-  }
+  };
 
   return (
     <div className={wrapper}>
@@ -33,5 +33,5 @@ export default ({ selectedValues, setSelectedValues }) => {
         <option value="16">16</option>
       </select>
     </div>
-  )
-}
+  );
+};

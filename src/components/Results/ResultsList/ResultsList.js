@@ -14,5 +14,5 @@ export default ({ search }) => {
       <ResultsHeader selectedValues={selectedValues} setSelectedValues={setSelectedValues} />
       <ResultsBody search={search} selectedValues={selectedValues} />
     </Fragment>
-  )
+  );
 };

@@ -6,12 +6,10 @@ import ResultsList from '../Results/ResultsList/ResultsList';
 export default () => {
   const [search, setSearch] = useState('');
 
-
-
   return (
     <div className={main}>
       <Search setSearch={setSearch} />
       <ResultsList search={search} />
     </div>
-  )
-}
+  );
+};
