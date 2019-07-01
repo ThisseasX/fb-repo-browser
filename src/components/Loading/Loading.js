@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Loading.module.sass';
+import { wrapper, loadingText } from './Loading.module.sass';
+import LoadingIcon from '../LoadingIcon/LoadingIcon';
 
 const Loading = ({ loading, children }) => (
     loading
         ?
-        <h1>Loading...</h1>
+        <div className={wrapper}>
+            <LoadingIcon />
+            <p className={loadingText}>loading</p>
+        </div>
         :
         children
 );
