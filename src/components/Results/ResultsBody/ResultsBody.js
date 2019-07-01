@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { wrapper } from './ResultsBody.module.sass';
 import Repo from '../../Repository/Repo/Repo';
+import Error from '../../Error/Error';
+import Loading from '../../Loading/Loading';
 
 export default ({ search, selectedValues }) => {
 
   const { sortBy, resultsPerPage } = selectedValues;
   const [repos, setRepos] = useState([]);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://api.github.com/users/facebook/repos?per_page=100', {
@@ -15,8 +19,10 @@ export default ({ search, selectedValues }) => {
     })
       .then(res => res.json())
       .then(json => {
+        setLoading(false);
+
         if (!Array.isArray(json)) {
-          console.log(json.message);
+          setError(json.message);
           return;
         }
 
@@ -34,7 +40,9 @@ export default ({ search, selectedValues }) => {
   }, []);
 
   const sorter = (repoA, repoB, key, transform) => {
-    transform = transform || function (x) { return x };
+    transform = typeof transform === 'function'
+      ? transform
+      : value => value
 
     const valueA = transform(repoA[key]);
     const valueB = transform(repoB[key]);
@@ -61,19 +69,19 @@ export default ({ search, selectedValues }) => {
       .slice(0, resultsPerPage);
 
   return (
-    repos.length < 1
-      ?
-      <h1>Loading...</h1>
-      :
-      <ul className={wrapper}>
-        {processedRepos.length < 1
-          ?
-          <p>No results</p>
-          :
-          processedRepos.map(repo => (
-            <Repo key={repo.id} repo={repo} />
-          ))
-        }
-      </ul>
+    <Error error={error}>
+      <Loading loading={loading}>
+        <ul className={wrapper}>
+          {processedRepos.length < 1
+            ?
+            <p>No results</p>
+            :
+            processedRepos.map(repo => (
+              <Repo key={repo.id} repo={repo} />
+            ))
+          }
+        </ul>
+      </Loading>
+    </Error>
   )
 };
