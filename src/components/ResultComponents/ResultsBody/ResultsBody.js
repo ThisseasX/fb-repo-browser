@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { wrapper, noResults } from './ResultsBody.module.sass';
-import Repo from '../../Repository/Repo/Repo';
+import Repo from '../../RepositoryComponents/Repo/Repo';
 import Error from '../../../helpers/Error/Error';
 import Loading from '../../../helpers/Loading/Loading';
 

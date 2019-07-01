@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { main } from './Main.module.sass';
 import Search from '../Search/Search';
-import ResultsList from '../Results/ResultsList/ResultsList';
+import ResultsList from '../ResultComponents/ResultsList/ResultsList';
 
 export default () => {
   const [search, setSearch] = useState('');
