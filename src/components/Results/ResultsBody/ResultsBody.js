@@ -22,7 +22,7 @@ export default ({ search, selectedValues }) => {
           return;
         }
 
-        json.some(({ id, name, description, stargazers_count }, index) => {
+        json.some(({ id, name, description, stargazers_count }) => {
 
           responseRepos.push({
             id,
@@ -57,9 +57,11 @@ export default ({ search, selectedValues }) => {
       ? sorter(repoA, repoB, key)
       : sorter(repoA, repoB, key, Number);
 
-  const filteredRepos = repos.filter(repo => repo.name.includes(search));
-  const sortedRepos = filteredRepos.sort((repoA, repoB) => handleSort(repoA, repoB, sortBy));
-  const takenRepos = sortedRepos.slice(0, resultsPerPage);
+  const processedRepos =
+    repos
+      .filter(repo => repo.name.includes(search))
+      .sort((repoA, repoB) => handleSort(repoA, repoB, sortBy))
+      .slice(0, resultsPerPage);
 
   return (
     repos.length < 1
@@ -67,12 +69,13 @@ export default ({ search, selectedValues }) => {
       <h1>Loading...</h1>
       :
       <ul className={wrapper}>
-        {takenRepos.length > 0
-          ? takenRepos.map(repo => (
+        {processedRepos.length < 1
+          ?
+          <p>No results</p>
+          :
+          processedRepos.map(repo => (
             <Repo key={repo.id} repo={repo} />
           ))
-          :
-          <p>No results</p>
         }
       </ul>
   )
