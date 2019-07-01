@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { wrapper, loadingText } from './Loading.module.sass';
-import LoadingIcon from '../LoadingIcon/LoadingIcon';
+import LoadingIcon from '../../icons/LoadingIcon/LoadingIcon';
 
 const Loading = ({ loading, children }) => (
     loading

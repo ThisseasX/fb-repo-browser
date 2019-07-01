@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { wrapper, noResults } from './ResultsBody.module.sass';
 import Repo from '../../Repository/Repo/Repo';
-import Error from '../../Error/Error';
-import Loading from '../../Loading/Loading';
+import Error from '../../../helpers/Error/Error';
+import Loading from '../../../helpers/Loading/Loading';
 
 export default ({ search, selectedValues }) => {
 

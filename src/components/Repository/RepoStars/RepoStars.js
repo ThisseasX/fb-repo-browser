@@ -1,6 +1,6 @@
 import React from 'react';
 import { wrapper, icon, count } from './RepoStars.module.sass';
-import StarIcon from '../../StarIcon/StarIcon';
+import StarIcon from '../../../icons/StarIcon/StarIcon';
 
 export default ({ stars }) => (
   <div className={wrapper}>

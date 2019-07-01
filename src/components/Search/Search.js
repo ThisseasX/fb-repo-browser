@@ -1,6 +1,6 @@
 import React from 'react';
 import { searchWrapper, input, iconWrapper } from './Search.module.sass';
-import SearchIcon from '../SearchIcon/SearchIcon';
+import SearchIcon from '../../icons/SearchIcon/SearchIcon';
 
 export default ({ setSearch }) => {
 
