@@ -15,22 +15,19 @@ export default ({ search, selectedValues }) => {
     })
       .then(res => res.json())
       .then(json => {
-        const responseRepos = [];
-
         if (!Array.isArray(json)) {
           console.log(json.message);
           return;
         }
 
-        json.some(({ id, name, description, stargazers_count }) => {
-
-          responseRepos.push({
+        const responseRepos = json.map(
+          ({ id, name, description, stargazers_count }) => ({
             id,
             name,
             description,
             stars: stargazers_count
-          });
-        });
+          })
+        );
 
         setRepos(responseRepos);
       });
