@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import ResultsHeader from '../ResultsHeader/ResultsHeader';
 import ResultsBody from '../ResultsBody/ResultsBody';
+import Pagination from '../../Pagination/Pagination';
 
 export default ({ search }) => {
 

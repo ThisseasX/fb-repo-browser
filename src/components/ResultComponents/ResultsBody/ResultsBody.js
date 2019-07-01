@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { wrapper, noResults } from './ResultsBody.module.sass';
+import { wrapper, noResults, paginationWrapper } from './ResultsBody.module.sass';
 import Repo from '../../RepositoryComponents/Repo/Repo';
 import Error from '../../../helpers/Error/Error';
 import Loading from '../../../helpers/Loading/Loading';
+import Pagination from '../../Pagination/Pagination';
+import usePagination from '../../Pagination/usePagination';
 
 export default ({ search, selectedValues }) => {
 
@@ -41,6 +43,7 @@ export default ({ search, selectedValues }) => {
         );
 
         setRepos(responseRepos);
+        firstPage();
       });
   };
 
@@ -70,22 +73,57 @@ export default ({ search, selectedValues }) => {
   const processedRepos =
     repos
       .filter(repo => repo.name.match(searchPatten))
-      .sort((repoA, repoB) => handleSort(repoA, repoB, sortBy))
-      .slice(0, resultsPerPage);
+      .sort((repoA, repoB) => handleSort(repoA, repoB, sortBy));
+
+  const remainingPagedItems = processedRepos.length % resultsPerPage;
+  const maxPages = ~~(processedRepos.length / resultsPerPage) + !!remainingPagedItems;
+
+  const {
+    page,
+    goToPage,
+    nextPage,
+    previousPage,
+    firstPage,
+    lastPage
+  } = usePagination(maxPages);
+
+  useEffect(() => {
+    if (page > maxPages) lastPage();
+  }, [resultsPerPage]);
+
+  const pagedRepos =
+    processedRepos
+      .slice((page - 1) * resultsPerPage, page * resultsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    switch (pageNumber) {
+      case -2:
+        previousPage();
+        break;
+      case -1:
+        nextPage();
+        break;
+      default:
+        goToPage(pageNumber);
+    }
+  };
 
   return (
     <Error error={error}>
       <Loading loading={loading}>
         <ul className={wrapper}>
-          {processedRepos.length < 1
+          {pagedRepos.length < 1
             ?
             <p className={noResults}>No results</p>
             :
-            processedRepos.map(repo => (
+            pagedRepos.map(repo => (
               <Repo key={repo.id} repo={repo} />
             ))
           }
         </ul>
+        <div className={paginationWrapper}>
+          <Pagination page={page || 1} maxPages={maxPages} handlePageChange={handlePageChange} />
+        </div>
       </Loading>
     </Error>
   );

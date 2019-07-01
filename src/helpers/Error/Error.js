@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Error.module.sass';
 import PropTypes from 'prop-types';
 
 const Error = ({ error, children }) => (

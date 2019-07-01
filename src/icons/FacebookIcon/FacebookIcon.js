@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './FacebookIcon.module.sass';
 
 export default () => (
   <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 48 48" space="preserve">
