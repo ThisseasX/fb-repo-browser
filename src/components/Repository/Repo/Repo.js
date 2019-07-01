@@ -13,8 +13,13 @@ export default ({ repo }) => {
     setActive(!isActive);
   };
 
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
   return (
-    <li onClick={handleClick} className={`${item} ${isActive && active}`}>
+    <li onClick={handleClick} onMouseDown={handleMouseDown} className={`${item} ${isActive && active}`}>
       <RepoInfo repo={repo} />
       <TinyCollapse isOpen={isActive}>
         <RepoDescription description={description} />

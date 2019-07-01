@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { wrapper } from './ResultsBody.module.sass';
 import Repo from '../../Repository/Repo/Repo';
 
-export default () => {
+export default ({ search, selectedValues }) => {
 
+  const { sortBy, resultsPerPage } = selectedValues;
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
@@ -22,7 +23,6 @@ export default () => {
         }
 
         json.some(({ id, name, description, stargazers_count }, index) => {
-          if (index >= 8) return true;
 
           responseRepos.push({
             id,
@@ -36,15 +36,44 @@ export default () => {
       });
   }, []);
 
+  const sorter = (repoA, repoB, key, transform) => {
+    transform = transform || function (x) { return x };
+
+    const valueA = transform(repoA[key]);
+    const valueB = transform(repoB[key]);
+
+    switch (true) {
+      case valueA < valueB:
+        return -1;
+      case valueA > valueB:
+        return 1;
+      default:
+        return 0
+    }
+  };
+
+  const handleSort = (repoA, repoB, key) =>
+    key === 'name'
+      ? sorter(repoA, repoB, key)
+      : sorter(repoA, repoB, key, Number);
+
+  const filteredRepos = repos.filter(repo => repo.name.includes(search));
+  const sortedRepos = filteredRepos.sort((repoA, repoB) => handleSort(repoA, repoB, sortBy));
+  const takenRepos = sortedRepos.slice(0, resultsPerPage);
+
   return (
     repos.length < 1
       ?
       <h1>Loading...</h1>
       :
       <ul className={wrapper}>
-        {repos.map(repo => (
-          <Repo key={repo.id} repo={repo} />
-        ))}
+        {takenRepos.length > 0
+          ? takenRepos.map(repo => (
+            <Repo key={repo.id} repo={repo} />
+          ))
+          :
+          <p>No results</p>
+        }
       </ul>
   )
 };
