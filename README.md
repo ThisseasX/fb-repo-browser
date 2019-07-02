@@ -1,4 +1,4 @@
-# fb-repo-browser
+# [fb-repo-browser](https://thisseasx.github.io/fb-repo-browser)
 Sample react app, fetching Facebook's Github Repositories and showing Name, Description and Stars.
 
 ## Features
@@ -13,7 +13,7 @@ Sample react app, fetching Facebook's Github Repositories and showing Name, Desc
 * Pure Function Components and Hooks for increased performance and reduced cognitive overhead
 * CSS modules for CSS class scoping and modularity
 * Custom Hooks implemented when necessary to abstract complex logic (for Pagination)
-* All icons are SVGs for increase performance and customization
+* All icons are SVGs for increased performance and customization
 * Loading Circle SVG was custom-made with HTML5 Canvas, then converted to SVG for faster development
 
 ### Technologies used:
@@ -24,3 +24,5 @@ Sample react app, fetching Facebook's Github Repositories and showing Name, Desc
 
 ### Non-technical
 * Logical Unit grouping into relevantly named folders for high cohesion, and low coupling when applicable
+
+### Deployed at GitHub Pages: [fb-repo-browser](https://thisseasx.github.io/fb-repo-browser).
