@@ -89,7 +89,8 @@ export default ({ search, selectedValues }) => {
 
   useEffect(() => {
     if (page > maxPages) lastPage();
-  }, [resultsPerPage]);
+    else if (page < 1) firstPage();
+  }, [resultsPerPage, maxPages]);
 
   const pagedRepos =
     processedRepos
