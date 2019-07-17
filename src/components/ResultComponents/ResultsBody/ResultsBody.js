@@ -13,6 +13,7 @@ export default ({ search, selectedValues }) => {
   const [repos, setRepos] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [activeRepoId, setActiveRepoId] = useState();
 
   useEffect(() => {
     fetchRepos();
@@ -109,6 +110,10 @@ export default ({ search, selectedValues }) => {
     }
   };
 
+  const handleClick = (repoId) => {
+    setActiveRepoId(repoId);
+  };
+
   return (
     <Error error={error}>
       <Loading loading={loading}>
@@ -118,7 +123,7 @@ export default ({ search, selectedValues }) => {
             <p className={noResults}>No results</p>
             :
             pagedRepos.map(repo => (
-              <Repo key={repo.id} repo={repo} />
+              <Repo key={repo.id} repo={repo} isActive={repo.id === activeRepoId} handleClick={handleClick} />
             ))
           }
         </ul>

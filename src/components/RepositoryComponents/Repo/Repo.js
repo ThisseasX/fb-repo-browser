@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { item, active } from './Repo.module.sass';
 import RepoInfo from '../RepoInfo/RepoInfo';
 import RepoDescription from '../RepoDescription/RepoDescription';
 import TinyCollapse from "react-tiny-collapse";
 
-export default ({ repo }) => {
-  const { description } = repo;
-
-  const [isActive, setActive] = useState(false);
-
-  const handleClick = () => {
-    setActive(!isActive);
-  };
+export default ({ repo, isActive, handleClick }) => {
+  const { id, description } = repo;
 
   const handleMouseDown = (e) => {
     e.preventDefault();
@@ -19,7 +13,7 @@ export default ({ repo }) => {
   };
 
   return (
-    <li onClick={handleClick} onMouseDown={handleMouseDown} className={`${item} ${isActive && active}`}>
+    <li onClick={() => handleClick(id)} onMouseDown={handleMouseDown} className={`${item} ${isActive && active}`}>
       <RepoInfo repo={repo} />
       <TinyCollapse isOpen={isActive}>
         <RepoDescription description={description} />
