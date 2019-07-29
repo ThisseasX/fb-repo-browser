@@ -112,7 +112,7 @@ export default ({ search, selectedValues }) => {
   };
 
   const handleClick = repoId => {
-    setActiveRepoId(repoId);
+    activeRepoId === repoId ? setActiveRepoId(0) : setActiveRepoId(repoId);
   };
 
   return (
