@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import ResultsHeader from '../ResultsHeader/ResultsHeader';
-import ResultsBody from '../ResultsBody/ResultsBody';
+import ResultsHeader from '../ResultsHeader';
+import ResultsBody from '../ResultsBody';
 
 export default ({ search }) => {
 

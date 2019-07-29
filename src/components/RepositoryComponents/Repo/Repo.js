@@ -1,7 +1,7 @@
 import React from 'react';
 import { item, active } from './Repo.module.sass';
-import RepoInfo from '../RepoInfo/RepoInfo';
-import RepoDescription from '../RepoDescription/RepoDescription';
+import RepoInfo from '../RepoInfo';
+import RepoDescription from '../RepoDescription';
 import TinyCollapse from "react-tiny-collapse";
 
 export default ({ repo, isActive, handleClick }) => {

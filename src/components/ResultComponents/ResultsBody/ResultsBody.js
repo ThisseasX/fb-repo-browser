@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { wrapper, noResults, paginationWrapper } from './ResultsBody.module.sass';
-import Repo from '../../RepositoryComponents/Repo/Repo';
-import Error from '../../../helpers/Error/Error';
-import Loading from '../../../helpers/Loading/Loading';
-import Pagination from '../../Pagination/Pagination';
-import usePagination from '../../Pagination/usePagination';
+import {
+  wrapper,
+  noResults,
+  paginationWrapper
+} from './ResultsBody.module.sass';
+import { Repo } from 'components/RepositoryComponents';
+import Error from 'helpers/Error';
+import Loading from 'helpers/Loading';
+import Pagination, { usePagination } from 'components/Pagination';
 
 export default ({ search, selectedValues }) => {
-
   const searchPatten = new RegExp(search.replace(' ', '.+'), 'ig');
   const { sortBy, resultsPerPage } = selectedValues;
   const [repos, setRepos] = useState([]);
@@ -22,7 +24,7 @@ export default ({ search, selectedValues }) => {
   const fetchRepos = () => {
     fetch('https://api.github.com/users/facebook/repos?per_page=100', {
       headers: {
-        'Authorization': 'token bd0e43bee286d8c2fa8df45443e97c2e2f288857'
+        Authorization: 'token bd0e43bee286d8c2fa8df45443e97c2e2f288857'
       }
     })
       .then(res => res.json())
@@ -49,9 +51,7 @@ export default ({ search, selectedValues }) => {
   };
 
   const sorter = (repoA, repoB, key, transform) => {
-    transform = typeof transform === 'function'
-      ? transform
-      : value => value
+    transform = typeof transform === 'function' ? transform : value => value;
 
     const valueA = transform(repoA[key]);
     const valueB = transform(repoB[key]);
@@ -71,13 +71,13 @@ export default ({ search, selectedValues }) => {
       ? sorter(repoA, repoB, key)
       : sorter(repoA, repoB, key, Number);
 
-  const processedRepos =
-    repos
-      .filter(repo => repo.name.match(searchPatten))
-      .sort((repoA, repoB) => handleSort(repoA, repoB, sortBy));
+  const processedRepos = repos
+    .filter(repo => repo.name.match(searchPatten))
+    .sort((repoA, repoB) => handleSort(repoA, repoB, sortBy));
 
   const remainingPagedItems = processedRepos.length % resultsPerPage;
-  const maxPages = ~~(processedRepos.length / resultsPerPage) + !!remainingPagedItems;
+  const maxPages =
+    ~~(processedRepos.length / resultsPerPage) + !!remainingPagedItems;
 
   const {
     page,
@@ -93,11 +93,12 @@ export default ({ search, selectedValues }) => {
     else if (page < 1) firstPage();
   }, [resultsPerPage, maxPages]);
 
-  const pagedRepos =
-    processedRepos
-      .slice((page - 1) * resultsPerPage, page * resultsPerPage);
+  const pagedRepos = processedRepos.slice(
+    (page - 1) * resultsPerPage,
+    page * resultsPerPage
+  );
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = pageNumber => {
     switch (pageNumber) {
       case -2:
         previousPage();
@@ -110,7 +111,7 @@ export default ({ search, selectedValues }) => {
     }
   };
 
-  const handleClick = (repoId) => {
+  const handleClick = repoId => {
     setActiveRepoId(repoId);
   };
 
@@ -118,17 +119,25 @@ export default ({ search, selectedValues }) => {
     <Error error={error}>
       <Loading loading={loading}>
         <ul className={wrapper}>
-          {pagedRepos.length < 1
-            ?
+          {pagedRepos.length < 1 ? (
             <p className={noResults}>No results</p>
-            :
+          ) : (
             pagedRepos.map(repo => (
-              <Repo key={repo.id} repo={repo} isActive={repo.id === activeRepoId} handleClick={handleClick} />
+              <Repo
+                key={repo.id}
+                repo={repo}
+                isActive={repo.id === activeRepoId}
+                handleClick={handleClick}
+              />
             ))
-          }
+          )}
         </ul>
         <div className={paginationWrapper}>
-          <Pagination page={page || 1} maxPages={maxPages} handlePageChange={handlePageChange} />
+          <Pagination
+            page={page || 1}
+            maxPages={maxPages}
+            handlePageChange={handlePageChange}
+          />
         </div>
       </Loading>
     </Error>

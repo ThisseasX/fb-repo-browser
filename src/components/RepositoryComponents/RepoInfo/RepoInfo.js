@@ -1,6 +1,6 @@
 import React from 'react';
 import { wrapper, info, nameText, triangle } from './RepoInfo.module.sass';
-import RepoStars from '../RepoStars/RepoStars';
+import RepoStars from '../RepoStars';
 
 export default ({ repo }) => {
   const { name, stars } = repo;

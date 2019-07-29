@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import '../../../node_modules/normalize.css/normalize.css';
+import 'normalize.css';
 import './App.sass';
-import Topbar from '../Topbar/Topbar';
-import Main from '../Main/Main';
+import Topbar from 'components/Topbar';
+import Main from 'components/Main';
 
 export default () => (
   <Fragment>
