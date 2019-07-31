@@ -4,7 +4,6 @@ import {
   listItem,
   arrowWrapper,
   arrowIcon,
-  ellipsis,
   left,
   right,
   active

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   wrapper,
   noResults,
@@ -7,15 +7,11 @@ import {
 import { Repo } from 'components/RepositoryComponents';
 import Error from 'helpers/Error';
 import Loading from 'helpers/Loading';
-import Pagination, { usePagination } from 'components/Pagination';
+import Pagination from 'components/Pagination';
 
 export default ({ search, selectedValues }) => {
   const searchPatten = new RegExp(search.replace(' ', '.+'), 'ig');
   const { sortBy, resultsPerPage } = selectedValues;
-  const [repos, setRepos] = useState([]);
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [activeRepoId, setActiveRepoId] = useState();
 
   useEffect(() => {
     fetchRepos();
@@ -78,15 +74,6 @@ export default ({ search, selectedValues }) => {
   const remainingPagedItems = processedRepos.length % resultsPerPage;
   const maxPages =
     ~~(processedRepos.length / resultsPerPage) + !!remainingPagedItems;
-
-  const {
-    page,
-    goToPage,
-    nextPage,
-    previousPage,
-    firstPage,
-    lastPage
-  } = usePagination(maxPages);
 
   useEffect(() => {
     if (page > maxPages) lastPage();

@@ -1,18 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import ResultsHeader from '../ResultsHeader';
 import ResultsBody from '../ResultsBody';
 
-export default ({ search }) => {
-
-  const [selectedValues, setSelectedValues] = useState({
-    sortBy: '',
-    resultsPerPage: '8'
-  });
-
-  return (
-    <Fragment>
-      <ResultsHeader selectedValues={selectedValues} setSelectedValues={setSelectedValues} />
-      <ResultsBody search={search} selectedValues={selectedValues} />
-    </Fragment>
-  );
-};
+export default ({ search }) => (
+  <Fragment>
+    <ResultsHeader
+      selectedValues={selectedValues}
+      setSelectedValues={setSelectedValues}
+    />
+    <ResultsBody search={search} selectedValues={selectedValues} />
+  </Fragment>
+);
