@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "627ee396b9a87c16e907476c3ad500e9",
+    "revision": "3b1e115b95724d0e1bf40e80f93e8f8c",
     "url": "/fb-repo-browser/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fb-repo-browser/static/css/2.764ccc25.chunk.css"
   },
   {
-    "revision": "7f0ee52a5f42470d74a8",
+    "revision": "77c1ba23d51422c4a35d",
     "url": "/fb-repo-browser/static/css/main.a62eda88.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fb-repo-browser/static/js/2.d34f7c22.chunk.js"
   },
   {
-    "revision": "7f0ee52a5f42470d74a8",
-    "url": "/fb-repo-browser/static/js/main.d98f2bad.chunk.js"
+    "revision": "77c1ba23d51422c4a35d",
+    "url": "/fb-repo-browser/static/js/main.e90abdbd.chunk.js"
   },
   {
     "revision": "08dd49edc9f3ef1fe822",
