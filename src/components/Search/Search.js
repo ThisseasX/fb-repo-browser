@@ -26,7 +26,7 @@ const Search = ({ search, updateSearch }) => {
 };
 
 Search.propTypes = {
-  search: PropTypes.string,
+  search: PropTypes.string.isRequired,
   updateSearch: PropTypes.func.isRequired
 };
 

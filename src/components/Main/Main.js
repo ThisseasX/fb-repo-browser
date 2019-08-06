@@ -4,10 +4,10 @@ import Search from 'components/Search';
 import { ResultsList } from 'components/ResultComponents';
 
 const Main = () => (
-  <div className={main}>
+  <main className={main}>
     <Search />
     <ResultsList />
-  </div>
+  </main>
 );
 
 export default Main;

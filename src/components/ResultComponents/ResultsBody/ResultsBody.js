@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   wrapper,
   noResults,
@@ -8,16 +9,14 @@ import { Repo } from 'components/RepositoryComponents';
 import Error from 'helpers/Error';
 import Loading from 'helpers/Loading';
 import Pagination from 'components/Pagination';
-import { connect } from 'react-redux';
-import { fetchRepos } from 'store/repo';
-import { updateMaxPages } from 'store/table';
+import { connectProps } from './props';
 
 const ResultsBody = ({
-  repos = [],
+  repos,
   fetchRepos,
   sortBy,
   resultsPerPage,
-  search = '',
+  search,
   page,
   updateMaxPages,
   loading,
@@ -25,7 +24,7 @@ const ResultsBody = ({
 }) => {
   useEffect(() => {
     fetchRepos();
-  }, []);
+  }, [fetchRepos]);
 
   const searchPatten = new RegExp(search.replace(' ', '.+'), 'ig');
 
@@ -83,23 +82,28 @@ const ResultsBody = ({
   );
 };
 
-export default connect(
-  ({
-    repo: { repos, activeRepoId },
-    table: { page, sortBy, resultsPerPage, search },
-    ui: { loading, error }
-  }) => ({
-    repos,
-    activeRepoId,
-    page,
-    sortBy,
-    resultsPerPage,
-    search,
-    loading,
-    error
-  }),
-  dispatch => ({
-    fetchRepos: payload => dispatch(fetchRepos(payload)),
-    updateMaxPages: payload => dispatch(updateMaxPages(payload))
-  })
-)(ResultsBody);
+ResultsBody.propTypes = {
+  repos: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        stars: PropTypes.number.isRequired
+      })
+    ),
+    PropTypes.shape({
+      message: PropTypes.string.isRequired
+    })
+  ]).isRequired,
+  fetchRepos: PropTypes.func.isRequired,
+  sortBy: PropTypes.string.isRequired,
+  resultsPerPage: PropTypes.string.isRequired,
+  search: PropTypes.string.isRequired,
+  page: PropTypes.number.isRequired,
+  updateMaxPages: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired
+};
+
+export default connectProps(ResultsBody);
