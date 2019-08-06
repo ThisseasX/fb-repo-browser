@@ -2,7 +2,7 @@
 Sample react app, fetching Facebook's Github Repositories and showing Name, Description and Stars.
 
 ## Features
-* Search with pattern conversion to RegEx to leverage case-insensitivity and swap spaces with `.+` for better searching experience
+* Search with pattern conversion to RegEx to leverage case-insensitivity and swap spaces with `.+` for a better searching experience
 * Pagination
 * Loading
 * Collapse
@@ -24,5 +24,10 @@ Sample react app, fetching Facebook's Github Repositories and showing Name, Desc
 
 ### Non-technical
 * Logical Unit grouping into relevantly named folders for high cohesion, and low coupling when applicable
+
+### Changes
+Now fully featuring:
+* Redux
+* Redux Observables
 
 ### Deployed at GitHub Pages: [fb-repo-browser](https://thisseasx.github.io/fb-repo-browser).
