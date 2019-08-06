@@ -15,7 +15,7 @@ const Loading = ({ loading, children }) =>
   );
 
 Loading.propTypes = {
-  loading: PropTypes.bool
+  loading: PropTypes.bool.isRequired
 };
 
 export default connectProps(Loading);

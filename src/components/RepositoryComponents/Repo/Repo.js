@@ -10,7 +10,7 @@ const Repo = ({ repo, activeRepoId, updateActiveRepoId }) => {
   const { id, description } = repo;
 
   const handleClick = () => {
-    updateActiveRepoId(id);
+    updateActiveRepoId(id === activeRepoId ? 0 : id);
   };
 
   const preventMouseDown = e => {

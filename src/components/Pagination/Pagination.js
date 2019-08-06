@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  wrapper,
   list,
   listItem,
   arrowWrapper,
@@ -56,7 +57,11 @@ const Pagination = ({ page, maxPages, nextPage, previousPage, updatePage }) => {
 
   const pagination = [leftArrow, pageNumbers, rightArrow];
 
-  return <ul className={list}>{pagination}</ul>;
+  return (
+    <div className={wrapper}>
+      <ul className={list}>{pagination}</ul>
+    </div>
+  );
 };
 
 Pagination.propTypes = {
