@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connectProps } from './props';
 
 const Error = ({ error, children }) => (!!error ? <p>{error}</p> : children);
 
@@ -8,4 +8,4 @@ Error.propTypes = {
   error: PropTypes.string
 };
 
-export default connect(({ error }) => ({ error }))(Error);
+export default connectProps(Error);

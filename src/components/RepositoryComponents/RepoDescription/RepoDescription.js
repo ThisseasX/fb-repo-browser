@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   wrapper,
   descriptionText,
@@ -6,7 +7,7 @@ import {
   body
 } from './RepoDescription.module.sass';
 
-export default ({ description }) => (
+const RepoDescription = ({ description }) => (
   <div className={wrapper}>
     <div className={descriptionText}>
       <p className={header}>Description:</p>
@@ -14,3 +15,9 @@ export default ({ description }) => (
     </div>
   </div>
 );
+
+RepoDescription.propTypes = {
+  description: PropTypes.string.isRequired
+};
+
+export default RepoDescription;

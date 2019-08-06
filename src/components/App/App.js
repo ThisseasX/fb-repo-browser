@@ -4,9 +4,11 @@ import './App.sass';
 import Topbar from 'components/Topbar';
 import Main from 'components/Main';
 
-export default () => (
+const App = () => (
   <Fragment>
     <Topbar />
     <Main />
   </Fragment>
 );
+
+export default App;

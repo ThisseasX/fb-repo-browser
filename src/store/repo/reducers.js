@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { onReposFetched, updateActiveRepoId } from './actions';
+import { updateRepos, updateActiveRepoId } from './actions';
 
 const initialState = {
   repos: [],
@@ -8,7 +8,7 @@ const initialState = {
 
 export const repoReducer = handleActions(
   {
-    [onReposFetched]: (state, { payload }) => ({
+    [updateRepos]: (state, { payload }) => ({
       ...state,
       repos: payload
     }),

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { wrapper, loadingText } from './Loading.module.sass';
 import LoadingIcon from 'icons/LoadingIcon';
-import { connect } from 'react-redux';
+import { connectProps } from './props';
 
 const Loading = ({ loading, children }) =>
   loading ? (
@@ -18,4 +18,4 @@ Loading.propTypes = {
   loading: PropTypes.bool
 };
 
-export default connect(({ loading }) => ({ loading }))(Loading);
+export default connectProps(Loading);

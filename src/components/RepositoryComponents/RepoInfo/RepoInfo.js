@@ -1,10 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { wrapper, info, nameText, triangle } from './RepoInfo.module.sass';
 import RepoStars from '../RepoStars';
 
-export default ({ repo }) => {
-  const { name, stars } = repo;
-
+const RepoInfo = ({ repo: { name, stars } }) => {
   return (
     <div className={wrapper}>
       <div className={info}>
@@ -15,3 +14,12 @@ export default ({ repo }) => {
     </div>
   );
 };
+
+RepoInfo.propTypes = {
+  repo: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    stars: PropTypes.number.isRequired
+  })
+};
+
+export default RepoInfo;

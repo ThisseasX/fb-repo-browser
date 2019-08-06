@@ -2,12 +2,11 @@ import React, { Fragment } from 'react';
 import ResultsHeader from '../ResultsHeader';
 import ResultsBody from '../ResultsBody';
 
-export default ({ search }) => (
+const ResultList = () => (
   <Fragment>
-    <ResultsHeader
-      selectedValues={selectedValues}
-      setSelectedValues={setSelectedValues}
-    />
-    <ResultsBody search={search} selectedValues={selectedValues} />
+    <ResultsHeader />
+    <ResultsBody />
   </Fragment>
 );
+
+export default ResultList;

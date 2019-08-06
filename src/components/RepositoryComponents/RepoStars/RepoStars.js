@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { wrapper, icon, count } from './RepoStars.module.sass';
 import StarIcon from 'icons/StarIcon';
 
-export default ({ stars }) => (
+const RepoStars = ({ stars }) => (
   <div className={wrapper}>
     <div className={icon}>
       <StarIcon />
@@ -10,3 +11,9 @@ export default ({ stars }) => (
     <p className={count}>{stars}</p>
   </div>
 );
+
+RepoStars.propTypes = {
+  stars: PropTypes.number.isRequired
+};
+
+export default RepoStars;

@@ -3,9 +3,11 @@ import { main } from './Main.module.sass';
 import Search from 'components/Search';
 import { ResultsList } from 'components/ResultComponents';
 
-export default () => (
+const Main = () => (
   <div className={main}>
-    <Search setSearch={setSearch} />
-    <ResultsList search={search} />
+    <Search />
+    <ResultsList />
   </div>
 );
+
+export default Main;

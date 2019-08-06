@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   list,
   listItem,
@@ -8,36 +9,62 @@ import {
   right,
   active
 } from './Pagination.module.sass';
+import { connectProps } from './props';
 
-export default ({ page, maxPages, handlePageChange }) => {
-
-  const handleMouseDown = (e) => {
-    e.preventDefault();
-    handlePageChange(e.currentTarget.value);
+const Pagination = ({ page, maxPages, nextPage, previousPage, updatePage }) => {
+  const handleNextPage = () => {
+    nextPage();
+  };
+  const handlePreviousPage = () => {
+    previousPage();
   };
 
-  const leftArrow =
-    <li onMouseDown={handleMouseDown} className={`${listItem} ${arrowWrapper}`} key={'first'} value={-2}>
+  const handlePageChange = e => {
+    updatePage(e.target.value);
+  };
+
+  const leftArrow = (
+    <li
+      onMouseDown={handlePreviousPage}
+      className={`${listItem} ${arrowWrapper}`}
+      key={'previous'}
+    >
       <div className={`${arrowIcon} ${left}`} />
     </li>
+  );
 
-  const pageNumbers =
-    new Array(maxPages).fill().map((_, index) =>
-      <li onMouseDown={handleMouseDown} className={`${listItem} ${index + 1 === page && active}`} key={index + 1} value={index + 1}>{index + 1}</li>
-    );
+  const pageNumbers = new Array(maxPages).fill().map((_, index) => (
+    <li
+      onMouseDown={handlePageChange}
+      className={`${listItem} ${index + 1 === page && active}`}
+      key={index + 1}
+      value={index + 1}
+    >
+      {index + 1}
+    </li>
+  ));
 
-  const rightArrow =
-    <li onMouseDown={handleMouseDown} className={`${listItem} ${arrowWrapper}`} key={'last'} value={-1}>
+  const rightArrow = (
+    <li
+      onMouseDown={handleNextPage}
+      className={`${listItem} ${arrowWrapper}`}
+      key={'next'}
+    >
       <div className={`${arrowIcon} ${right}`} />
     </li>
-
-  return (
-    <ul className={list} >
-      {[
-        leftArrow,
-        pageNumbers,
-        rightArrow
-      ]}
-    </ul>
   );
+
+  const pagination = [leftArrow, pageNumbers, rightArrow];
+
+  return <ul className={list}>{pagination}</ul>;
 };
+
+Pagination.propTypes = {
+  page: PropTypes.number.isRequired,
+  maxPages: PropTypes.number.isRequired,
+  nextPage: PropTypes.func.isRequired,
+  previousPage: PropTypes.func.isRequired,
+  updatePage: PropTypes.func.isRequired
+};
+
+export default connectProps(Pagination);

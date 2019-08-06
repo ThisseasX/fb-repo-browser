@@ -1,3 +1,2 @@
-import { fetchRepos, onReposFetched, updateActiveRepoId } from './actions';
-import { repoReducer } from './reducers';
-export { repoReducer, fetchRepos, onReposFetched, updateActiveRepoId };
+export * from './actions';
+export * from './reducers';

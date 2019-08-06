@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { searchWrapper, input, iconWrapper } from './Search.module.sass';
 import SearchIcon from 'icons/SearchIcon';
+import { connectProps } from './props';
 
 const Search = ({ search, updateSearch }) => {
-  
   const handleSearch = e => {
     updateSearch(e.target.value);
   };
@@ -26,13 +26,8 @@ const Search = ({ search, updateSearch }) => {
 };
 
 Search.propTypes = {
-  search: PropTypes.bool.isRequired,
+  search: PropTypes.string,
   updateSearch: PropTypes.func.isRequired
-}
+};
 
-export default connect(
-  ({ search }) => ({ search }),
-  dispatch => ({
-    updateSearch: payload => dispatch(updateSearch(payload));
-  })
-)(Search);
+export default connectProps(Search);
