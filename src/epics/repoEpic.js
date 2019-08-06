@@ -1,13 +1,5 @@
 import { ofType, combineEpics } from 'redux-observable';
-import {
-  map,
-  mergeMap,
-  tap,
-  mapTo,
-  switchMap,
-  ignoreElements
-} from 'rxjs/operators';
-import { of, from } from 'rxjs';
+import { map, mergeMap, switchMap } from 'rxjs/operators';
 import { fetchRepos, onReposFetched, updateRepos } from 'store/repo';
 import { firstPage } from 'store/table';
 import { stopLoading, updateError } from 'store/ui';
@@ -25,7 +17,6 @@ const onReposFetchedEpic = action$ =>
     ofType(onReposFetched),
     mergeMap(({ payload }) => {
       if (!Array.isArray(payload)) {
-        console.log(payload);
         return [stopLoading(), updateError(payload.message)];
       }
 

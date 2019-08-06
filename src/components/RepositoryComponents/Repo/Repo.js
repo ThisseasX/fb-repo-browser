@@ -37,7 +37,7 @@ const Repo = ({ repo, activeRepoId, updateActiveRepoId }) => {
 Repo.propTypes = {
   repo: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string
   }),
   activeRepoId: PropTypes.number,
   updateActiveRepoId: PropTypes.func.isRequired

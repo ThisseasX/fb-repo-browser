@@ -17,7 +17,7 @@ const RepoDescription = ({ description }) => (
 );
 
 RepoDescription.propTypes = {
-  description: PropTypes.string.isRequired
+  description: PropTypes.string
 };
 
 export default RepoDescription;

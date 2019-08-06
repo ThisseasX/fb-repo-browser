@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { updateActiveRepoId } from 'store/repo';
 
 export const connectProps = connect(
-  ({ activeRepoId }) => ({
+  ({ repo: { activeRepoId } }) => ({
     activeRepoId
   }),
   dispatch => ({

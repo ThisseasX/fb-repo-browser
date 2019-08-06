@@ -15,7 +15,7 @@ const initialState = {
   sortBy: 'name',
   resultsPerPage: '8',
   search: '',
-  page: 0,
+  page: 1,
   maxPages: 0
 };
 
@@ -37,7 +37,7 @@ export const tableReducer = handleActions(
     }),
     [firstPage]: state => ({
       ...state,
-      page: 0
+      page: 1
     }),
     [lastPage]: state => ({
       ...state,
@@ -45,19 +45,20 @@ export const tableReducer = handleActions(
     }),
     [nextPage]: state => ({
       ...state,
-      page: clamp(state.page + 1, 0, state.maxPages - 1)
+      page: clamp(state.page + 1, 1, state.maxPages)
     }),
     [previousPage]: state => ({
       ...state,
-      page: clamp(state.page - 1, 0, state.maxPages - 1)
+      page: clamp(state.page - 1, 1, state.maxPages)
     }),
     [updatePage]: (state, { payload }) => ({
       ...state,
-      page: clamp(payload, 0, state.maxPages - 1)
+      page: clamp(payload, 1, state.maxPages)
     }),
     [updateMaxPages]: (state, { payload }) => ({
       ...state,
-      maxPages: payload
+      maxPages: payload,
+      page: clamp(state.page, 1, payload)
     })
   },
   initialState

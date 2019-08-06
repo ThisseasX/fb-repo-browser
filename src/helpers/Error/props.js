@@ -1,3 +1,3 @@
 import { connect } from 'react-redux';
 
-export const connectProps = connect(({ error }) => ({ error }));
+export const connectProps = connect(({ ui: { error } }) => ({ error }));
