@@ -1,2 +1,1 @@
-import RepoStars from './RepoStars';
-export default RepoStars;
+export { default } from './RepoStars';

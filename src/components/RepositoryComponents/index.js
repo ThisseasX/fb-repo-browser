@@ -1,5 +1,4 @@
-import Repo from './Repo';
-import RepoDescription from './RepoDescription';
-import RepoInfo from './RepoInfo';
-import RepoStars from './RepoStars';
-export { Repo, RepoDescription, RepoInfo, RepoStars };
+export { default as Repo } from './Repo';
+export { default as RepoDescription } from './RepoDescription';
+export { default as RepoInfo } from './RepoInfo';
+export { default as RepoStars } from './RepoStars';

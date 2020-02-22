@@ -1,2 +1,1 @@
-import StarIcon from './StarIcon';
-export default StarIcon;
+export { default } from './StarIcon';

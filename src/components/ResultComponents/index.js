@@ -1,4 +1,3 @@
-import ResultsBody from './ResultsBody';
-import ResultsHeader from './ResultsHeader';
-import ResultsList from './ResultsList';
-export { ResultsBody, ResultsHeader, ResultsList };
+export { default as ResultsBody } from './ResultsBody';
+export { default as ResultsHeader } from './ResultsHeader';
+export { default as ResultsList } from './ResultsList';

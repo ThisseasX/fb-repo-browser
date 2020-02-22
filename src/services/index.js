@@ -1,1 +1,1 @@
-export * from './repoService';
+export * from './repo-service';

@@ -1,14 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import 'normalize.css';
 import './App.sass';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 import Topbar from 'components/Topbar';
 import Main from 'components/Main';
 
 const App = () => (
-  <Fragment>
+  <Provider store={store}>
     <Topbar />
     <Main />
-  </Fragment>
+  </Provider>
 );
 
 export default App;

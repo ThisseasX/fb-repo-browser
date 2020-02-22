@@ -1,2 +1,1 @@
-import ResultsList from './ResultsList';
-export default ResultsList;
+export { default } from './ResultsList';

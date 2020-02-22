@@ -1,2 +1,1 @@
-import RepoDescription from './RepoDescription';
-export default RepoDescription;
+export { default } from './RepoDescription';

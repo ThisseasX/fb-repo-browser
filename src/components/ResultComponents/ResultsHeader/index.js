@@ -1,2 +1,1 @@
-import ResultsHeader from './ResultsHeader';
-export default ResultsHeader;
+export { default } from './ResultsHeader';

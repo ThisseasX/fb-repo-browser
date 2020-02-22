@@ -1,2 +1,1 @@
-import SearchIcon from './SearchIcon';
-export default SearchIcon;
+export { default } from './SearchIcon';

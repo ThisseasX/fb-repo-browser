@@ -1,2 +1,1 @@
-import ResultsBody from './ResultsBody';
-export default ResultsBody;
+export { default } from './ResultsBody';

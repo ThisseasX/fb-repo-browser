@@ -2,9 +2,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { uiReducer } from './ui';
 import { tableReducer } from './table';
-import { repoReducer } from './repo';
+import { repoReducer, repoEpic } from './repo';
 import { createEpicMiddleware } from 'redux-observable';
-import { repoEpic } from 'epics';
 
 const epicMiddleware = createEpicMiddleware();
 

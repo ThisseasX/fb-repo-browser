@@ -33,4 +33,4 @@ const onReposFetchedEpic = action$ =>
     })
   );
 
-export default combineEpics(fetchReposEpic, onReposFetchedEpic);
+export const repoEpic = combineEpics(fetchReposEpic, onReposFetchedEpic);
