@@ -4,7 +4,7 @@
   "homepage": "https://thisseasx.github.io/fb-repo-browser",
   "private": true,
   "dependencies": {
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
